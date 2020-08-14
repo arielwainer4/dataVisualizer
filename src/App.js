@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
-import MyD3Component from './components/graph'
+import {Graph} from './components'
 
 function App() {
+  const api = 'https://api.covidtracking.com/v1/states/tx/daily.json'
+
   return (
     <div className="App">
       <header className="App-header">
-      <MyD3Component data={[1,2,3]}/>
+        <Graph api={api}/>
       </header>
     </div>
   );
