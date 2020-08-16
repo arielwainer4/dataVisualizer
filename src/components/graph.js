@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { template, reDraw } from '../helper-functions'
-import {VariableSelect, RegionSelect} from './index'
+import { template, drawLine } from './line-graph'
+import { drawBar } from './bar-graph'
+
+import {VariableSelect, RegionSelect, GraphTypeSelect} from './index'
 import {Button, TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody} from '@material-ui/core'
 
 // let sampleDate = new Date()
@@ -8,10 +10,11 @@ import {Button, TableContainer, Table, TableHead, TableRow, TableCell, Paper, Ta
 const MyD3Component = (props) => {
 
   const [allData, setAllData] = useState(['""']);
-  const [dateData, setDateData] = useState(['"b"']);
+  const [dateData, setDateData] = useState(['""']);
   const [valueData, setValueData] = useState([`""`]);
   const [variable, selectVariable] = useState([""]);
   const [region, selectRegion] = useState([""]);
+  const [graphType, selectGraphType] = useState([""]);
   const d3Container = useRef(null);
 
   const api = `https://api.covidtracking.com/v1/${region}/daily.json`
@@ -63,17 +66,27 @@ const MyD3Component = (props) => {
     if(allData.length < 1) {
       template(allData, svgWidth, svgHeight, margin)
     }
-    else if(allData.length > 1) {
-      reDraw(allData, svgWidth, svgHeight, margin, variable)
+    else if(allData.length > 1 && graphType[0] === 'Line') {
+      drawLine(allData, svgWidth, svgHeight, margin, variable)
       }
+      else if(allData.length > 1 && graphType[0] === 'Bar') {
+        drawBar(allData, svgWidth, svgHeight, margin, variable)
+        }
     }
 
   function variableSelector (event) {
     selectVariable([event.target.value])
+    setValueData([`""`])
   }
 
   function regionSelector (event) {
     selectRegion([event.target.value])
+    setValueData([`""`])
+  }
+
+  function graphTypeSelector (event) {
+    selectGraphType([event.target.value])
+    setValueData([`""`])
   }
 
   return (
@@ -89,6 +102,10 @@ const MyD3Component = (props) => {
             <TableCell align="center">
               Variable:
               <VariableSelect variableSelector={variableSelector} />
+            </TableCell>
+            <TableCell align="center">
+              Graph Type:
+              <GraphTypeSelect graphTypeSelector={graphTypeSelector} />
             </TableCell>
             <TableCell align="center">
               <Button variant="contained" color="primary" onClick={() => fetchData()}>Load Graph</Button>

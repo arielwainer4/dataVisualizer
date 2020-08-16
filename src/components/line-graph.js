@@ -35,7 +35,7 @@ let y = d3.scaleLinear()
     .text("Variable")
 }
 
-export function reDraw (allData, svgWidth, svgHeight, margin, variable) {
+export function drawLine (allData, svgWidth, svgHeight, margin, variable) {
   let width = svgWidth - margin.left - margin.right;
   let height = svgHeight - margin.top - margin.bottom
 
@@ -55,7 +55,6 @@ export function reDraw (allData, svgWidth, svgHeight, margin, variable) {
       let y = d3.scaleLinear()
         .rangeRound([height, 0])
 
-
       let line = d3.line()
         .x(function(d) {return x(Date.parse(d.date))})
         .y(function(d) {return y(d.value)})
@@ -64,25 +63,26 @@ export function reDraw (allData, svgWidth, svgHeight, margin, variable) {
         y.domain(d3.extent(allData, function(d) {return d.value}))
 
         g.append("g")
-          .call(d3.axisBottom(x))
-          .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x))
+        .attr("transform", "translate(0," + height + ")")
 
         g.append("g")
-          .call(d3.axisLeft(y))
-          .append("text")
-          .attr("fill", "black")
-          .attr("transform",`rotate(-90) translate(-${height/2}, -${margin.left / 1.2})`)
-          .attr("y", 0)
-          .attr("dy", "0em")
-          .attr("text-anchor", "end")
-          .text(`${variable[0]}`)
+        .call(d3.axisLeft(y))
+        .append("text")
+        .attr("fill", "black")
+        .attr("transform",`rotate(-90) translate(-${height/2}, -${margin.left / 1.2})`)
+        .attr("y", 0)
+        .attr("dy", "0em")
+        .attr("text-anchor", "end")
+        .text(`${variable[0]}`)
 
         g.append("path")
-          .datum(allData)
-          .attr("fill", "none")
-          .attr("stroke", "blue")
-          .attr("stroke-linejoin", "round")
-          .attr("stroke-linecap", "round")
-          .attr("stroke-width", 1.5)
-          .attr("d", line)
+        .datum(allData)
+        .attr("fill", "none")
+        .attr("stroke", "blue")
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-linecap", "round")
+        .attr("stroke-width", 1.5)
+        .attr("d", line)
+
 }
