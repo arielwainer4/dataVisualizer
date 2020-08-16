@@ -1,16 +1,33 @@
 import React from 'react';
 import './App.css';
-import {Graph} from './components'
+import { AppBar, Toolbar, Typography, Container } from '@material-ui/core'
+import { Graph } from './components/index'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 
 function App() {
-  const api = 'https://api.covidtracking.com/v1/states/tx/daily.json'
-
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <Graph api={api}/>
-      </header>
+      <nav>
+        <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" style={{ margin: "0rem 2rem 0rem" }}>
+            Covid Data Visualizer
+          </Typography>
+          <Typography variant="h6">
+            <Link to="/linegraph">Line Graph</Link>
+          </Typography>
+        </Toolbar>
+        </AppBar>
+      </nav>
+      <main>
+        <Container maxWidth="md" >
+          <Route exact path="/linegraph" component={Graph} />
+        </Container>
+        </main>
     </div>
+    </Router>
   );
 }
 

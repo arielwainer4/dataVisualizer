@@ -1,7 +1,9 @@
 import React from 'react'
 
 const RegionSelect = (props) => {
-  const states = [ {us: "U.S."}, {ak: "AK"},
+  const states = [
+{  us: "U.S."},
+{  ak: "AK"},
 {  al: "AL"},
 {  ar: "AR"},
 {  az: "AZ"},
@@ -49,13 +51,14 @@ const RegionSelect = (props) => {
 {  va: "VA"},
 {  vt: "VT"},
 {  wa: "WA"},
- { wi: "WI"},
+{  wi: "WI"},
 {  wv: "WV"},
-  {wy: "WY"} ]
+{  wy: "WY"} ]
 
   return (
     <div>
-      <select >
+      <select onChange={props.regionSelector}>
+      <option defaultValue="none" >Choose a Region</option>
         {states.map((state, idx) => {
           let lower;
           let upper;
@@ -63,10 +66,16 @@ const RegionSelect = (props) => {
             lower = object
             upper = state[object]
           }
-        return <option value={lower} key={idx}>{upper}</option> })
-        }
-      </select>
-    </div>
+          if (lower === 'us') {
+            return <option value={lower} key={idx}>{upper}</option>
+          }
+          else {
+            return <option value={`states/${lower}`} key={idx}>{upper}</option>
+          }
+        })
+      }
+    </select>
+  </div>
   )
 }
 

@@ -70,7 +70,7 @@ export function reDraw (allData, svgWidth, svgHeight, margin, variable) {
         g.append("g")
           .call(d3.axisLeft(y))
           .append("text")
-          .attr("fill", "white")
+          .attr("fill", "black")
           .attr("transform",`rotate(-90) translate(-${height/2}, -${margin.left / 1.2})`)
           .attr("y", 0)
           .attr("dy", "0em")
