@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import { AppBar, Toolbar, Typography, Container } from '@material-ui/core'
-import { Graph, Map } from './components/index'
+import { AppBar, Toolbar, Typography, Container} from '@material-ui/core'
+import { Graph, Footer } from './components/index'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
@@ -30,6 +30,9 @@ function App() {
           <Route exact path="/map" component={Map} />
         </Container>
         </main>
+        <footer>
+          <Footer />
+        </footer>
     </div>
     </Router>
   );

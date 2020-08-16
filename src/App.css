@@ -5,3 +5,8 @@
 .App-link {
   color: #61dafb;
 }
+
+footer {
+  margin-top:calc(1% + 60px);
+  bottom: 0;
+}
