@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { template, drawLine } from './line-graph'
+import { template } from './graph-template'
+import { drawLine } from './line-graph'
 import { drawBar } from './bar-graph'
 
 import {VariableSelect, RegionSelect, GraphTypeSelect} from './index'

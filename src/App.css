@@ -10,3 +10,23 @@ footer {
   margin-top:calc(1% + 60px);
   bottom: 0;
 }
+
+a {
+  color: white
+}
+
+a {
+  text-decoration: none;
+}
+
+nav a:visited {
+  color:white;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.home-icon{
+  transform: scale(1.8);
+}
