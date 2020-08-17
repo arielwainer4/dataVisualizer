@@ -22,23 +22,17 @@ const Map2 = (props) => {
     setMapData([JSON.stringify(map)])
   }
 
-  let svgWidth = 600
-  let svgHeight = 450
-  let margin = {top: 20, right: 20, bottom: 30, left: 100}
-  let width = svgWidth - margin.left - margin.right;
-  let height = svgHeight - margin.top - margin.bottom
-
-    d3.select("svg").remove();
-
-    d3.select(".svg-div").append("svg")
+  function drawMap () {
+    let svgWidth = 600
+    let svgHeight = 450
+    let margin = {top: 20, right: 20, bottom: 30, left: 100}
+    let width = svgWidth - margin.left - margin.right;
+    let height = svgHeight - margin.top - margin.bottom
 
     let svg = d3.select('svg')
       .attr("width", svgWidth)
       .attr("height", svgHeight)
       .style("cursor", "move")
-
-    svg.attr("viewBox", "50 10" + width + " " + height)
-      .attr("preserveAspectRatio", "xMinYMin")
 
     let zoom = d3.zoom()
       .on("zoom", function () {
@@ -54,7 +48,6 @@ const Map2 = (props) => {
       .attr("stroke", "grey")
       .attr("stroke-width", 1.1)
 
-    function drawMap () {
       let world = JSON.parse(mapData[0])
       let data = JSON.parse(covidData[0])
 
@@ -133,16 +126,16 @@ const Map2 = (props) => {
       }
     }
 
+  let dateObj = new Date();
+    dateObj.setDate(dateObj.getDate() - 1)
 
   return (
     <div  style={{margin: 40}}>
       <Container component={Paper} elevation={10} style={{padding: "20px 20px"}}>
       <div className="svg-div" >
-        <Typography style={{ margin: "2rem 0rem 0rem" }} >This heatmap is a snapshot of the current total Covid-19 positive test distribution across the US.</Typography>
+        <Typography style={{ margin: "2rem 2rem 0rem" }} >This heatmap is a snapshot of the current total Covid-19 positive test distribution across the US as of {dateObj.toDateString()}.</Typography>
         <svg
           className="d3-component"
-          width={400}
-          height={200}
           ref={d3Container}
         />
       </div>

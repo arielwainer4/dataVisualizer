@@ -2,9 +2,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import { template } from './graph-template'
 import { drawLine } from './line-graph'
 import { drawBar } from './bar-graph'
-
-import {VariableSelect, RegionSelect, GraphTypeSelect} from './index'
-import {Button, TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody} from '@material-ui/core'
+import { GraphCreator} from './index'
+import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody} from '@material-ui/core'
 
 // let sampleDate = new Date()
 
@@ -99,23 +98,8 @@ const MyD3Component = (props) => {
     <TableContainer component={Paper} elevation={10}>
       <Table aria-label="spanning table">
         <TableHead >
-          <TableRow>
-            <TableCell align="center">
-              Region:
-              <RegionSelect regionSelector={regionSelector}/>
-            </TableCell>
-            <TableCell align="center">
-              Variable:
-              <VariableSelect variableSelector={variableSelector} />
-            </TableCell>
-            <TableCell align="center">
-              Graph Type:
-              <GraphTypeSelect graphTypeSelector={graphTypeSelector} />
-            </TableCell>
-            <TableCell align="center">
-              <Button variant="contained" color="primary" onClick={() => fetchData()}>Load Graph</Button>
-            </TableCell>
-          </TableRow>
+          <GraphCreator regionSelector={regionSelector} variableSelector={variableSelector} graphTypeSelector={graphTypeSelector} fetchData={fetchData} />
+          <GraphCreator regionSelector={regionSelector} variableSelector={variableSelector} graphTypeSelector={graphTypeSelector} fetchData={fetchData} />
         </TableHead>
         <TableBody>
           <TableRow>
