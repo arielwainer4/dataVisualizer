@@ -14,7 +14,7 @@ const Footer = (props) => {
         <Link to="/graph" style={{ margin: "0rem 2rem 0rem" }}>Graph</Link>
       </Typography>
       <Typography variant="h6" align="center">
-        <Link to="/map">Map</Link>
+        <Link to="/map">Heat Map</Link>
       </Typography>
     </Toolbar>
     </AppBar>
