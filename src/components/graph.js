@@ -51,7 +51,11 @@ const MyD3Component = (props) => {
       let complete = [];
       let dates = JSON.parse(dateData[0])
       dates.forEach((date, idx) => {
-        date.value = all[idx][variable]
+        if(all[idx][variable] === null) {
+          date.value = 0
+        } else {
+          date.value = all[idx][variable]
+        }
         complete.push(date)
       })
       setValueData([JSON.stringify(complete)])

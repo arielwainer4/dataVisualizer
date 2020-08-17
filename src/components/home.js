@@ -21,7 +21,9 @@ const Home = (props) => {
             </Typography>
           </TableCell>
           <TableCell>
-            <p>Throughout the past 6 months, I've spent countless hours pouring over COVID-19 data. From line graphs representing positive cases in New York City, to animated maps demonstrating how hot spots have progressively migrated across the U.S, I have seen my fair share of informative and not so informative visuals. So when tasked with self-teaching a new tool for the Grace Hopper Stackathon, data visualization felt like a natural first choice.</p>
+            <p>Throughout the past 6 months, I've spent countless hours pouring over COVID-19 data. From line graphs representing positive cases in New York City, to animated maps demonstrating how hot spots have progressively migrated across the U.S, I have seen my fair share of informative and not so informative visuals with varying levels of complexity.</p>
+
+            <p>So when tasked with self-teaching a new tool for the Grace Hopper Stackathon, it felt like a natural first choice to see if I could learn to make a few Covid-19 graphs myself.</p>
           </TableCell>
         </TableRow>
 
@@ -51,7 +53,7 @@ const Home = (props) => {
             </Typography>
           </TableCell>
           <TableCell>
-            <p>Learn how to manipulate SVG elements and create a variety of data visualiztion formats with the D3 library while simultantaneously improving comfort integrating React Hooks dynamic components across.</p>
+            <p>Using data provided by The Covid Tracking Project, learn how to manipulate SVG elements and create a variety of data visualiztion formats with the D3 library while simultantaneously improving comfort integrating React Hooks dynamic components across.</p>
           </TableCell>
         </TableRow>
         </Table>
