@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import * as topojson from "topojson-client";
-import { Typography, Paper, TableContainer } from '@material-ui/core';
+import { Typography, Paper, Container } from '@material-ui/core';
 var stateHash = require('./state-hash.json');
 
 const Map2 = (props) => {
@@ -10,15 +10,17 @@ const Map2 = (props) => {
   const d3Container = useRef(null);
 
   useEffect(fetchData, [])
-  useEffect(drawMap, mapData)
+  useEffect(drawMap, covidData)
 
   function fetchData () {
-    let covid = require('./us-covid.json')
+    fetch('https://api.covidtracking.com/v1/states/current.json')
+    .then((response) => {return response.json()})
+    .then((data) => {
+      setCovidData([JSON.stringify(data)])
+    })
     let map = require('./us-topo.json')
-    setCovidData([JSON.stringify(covid)])
     setMapData([JSON.stringify(map)])
   }
-
 
   let svgWidth = 600
   let svgHeight = 450
@@ -26,12 +28,9 @@ const Map2 = (props) => {
   let width = svgWidth - margin.left - margin.right;
   let height = svgHeight - margin.top - margin.bottom
 
-
     d3.select("svg").remove();
 
     d3.select(".svg-div").append("svg")
-
-
 
     let svg = d3.select('svg')
       .attr("width", svgWidth)
@@ -41,19 +40,25 @@ const Map2 = (props) => {
     svg.attr("viewBox", "50 10" + width + " " + height)
       .attr("preserveAspectRatio", "xMinYMin")
 
+    let zoom = d3.zoom()
+      .on("zoom", function () {
+          let transform = d3.zoomTransform(this);
+          map.attr("transform", transform);
+      });
+
+    svg.call(zoom)
 
     let map = svg.append("g")
       .attr("class", "map")
       .attr("transform", "translate( -170 , -170)")
       .attr("stroke", "grey")
-      .attr("stroke-width", 1.3)
-
+      .attr("stroke-width", 1.1)
 
     function drawMap () {
       let world = JSON.parse(mapData[0])
       let data = JSON.parse(covidData[0])
 
-      if(world && data.length > 2) {
+      if(data.length > 2) {
 
         // projection
         let projection = d3.geoAlbersUsa()
@@ -109,6 +114,10 @@ const Map2 = (props) => {
 
             d3.select(".state")
               .text(d.properties.name)
+              .style("stroke", "black")
+
+            d3.select(".cases")
+              .text(d.details.positive.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 
             d3.select('.details')
               .style('visibility', 'visible')
@@ -127,9 +136,9 @@ const Map2 = (props) => {
 
   return (
     <div  style={{margin: 40}}>
-      <TableContainer component={Paper} elevation={10} >
+      <Container component={Paper} elevation={10} style={{padding: "20px 20px"}}>
       <div className="svg-div" >
-        <Typography style={{ margin: "2rem 0rem 0rem" }} >This heatmap is a snapshot of the total Covid-19 positive test distribution across the US.</Typography>
+        <Typography style={{ margin: "2rem 0rem 0rem" }} >This heatmap is a snapshot of the current total Covid-19 positive test distribution across the US.</Typography>
         <svg
           className="d3-component"
           width={400}
@@ -137,7 +146,11 @@ const Map2 = (props) => {
           ref={d3Container}
         />
       </div>
-      </TableContainer>
+        <div className="details" style={{margin: "0px 50px"}}>
+          <h2 className="state"> </h2>
+          <p className="cases" style={{margin: "0px 50px"}}></p>
+        </div>
+      </Container>
     </div>
   );
 }
