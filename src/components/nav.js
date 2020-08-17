@@ -8,7 +8,7 @@ const Footer = (props) => {
     <AppBar position="static">
     <Toolbar>
       <Typography variant="h3" style={{ margin: "0rem 2rem 0rem" }}>
-        Covid Data Visualizer
+      <Link to="/" >Covid Data Visualizer </Link>
       </Typography>
       <Typography variant="h6">
         <Link to="/graph" style={{ margin: "0rem 2rem 0rem" }}>Graph</Link>

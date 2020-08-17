@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import * as topojson from "topojson-client";
-// var covidJSON = require('./us-covid.json');
-// var topoJSON = require('./us-topo.json');
+import { Typography, Paper, TableContainer } from '@material-ui/core';
 var stateHash = require('./state-hash.json');
 
 const Map2 = (props) => {
@@ -45,9 +44,9 @@ const Map2 = (props) => {
 
     let map = svg.append("g")
       .attr("class", "map")
-      .attr("transform", "translate( -150 , -150)")
+      .attr("transform", "translate( -170 , -170)")
       .attr("stroke", "grey")
-      .attr("stroke-width", 1)
+      .attr("stroke-width", 1.3)
 
 
     function drawMap () {
@@ -105,7 +104,7 @@ const Map2 = (props) => {
           .on('mouseover', function (d) {
             d3.select(this)
               .style("stroke", "white")
-              .style("stroke-width", 1)
+              .style("stroke-width", 3)
               .style("cursor", "pointer")
 
             d3.select(".state")
@@ -127,13 +126,18 @@ const Map2 = (props) => {
 
 
   return (
-    <div className="svg-div" style={{margin: 40}}>
-      <svg
-        className="d3-component"
-        width={400}
-        height={200}
-        ref={d3Container}
-      />
+    <div  style={{margin: 40}}>
+      <TableContainer component={Paper} elevation={10} >
+      <div className="svg-div" >
+        <Typography style={{ margin: "2rem 0rem 0rem" }} >This heatmap is a snapshot of the total Covid-19 positive test distribution across the US.</Typography>
+        <svg
+          className="d3-component"
+          width={400}
+          height={200}
+          ref={d3Container}
+        />
+      </div>
+      </TableContainer>
     </div>
   );
 }

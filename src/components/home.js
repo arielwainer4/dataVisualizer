@@ -59,9 +59,6 @@ const Home = (props) => {
           </TableCell>
         </TableRow>
 
-
-
-
         </Table>
       </TableContainer>
     </div>
