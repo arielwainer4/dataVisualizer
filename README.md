@@ -29,7 +29,7 @@ You explore the data visualization tools at https://data-visualizer-abw.herokuap
 Or, feel free to clone repo. To start, please enter the following commands on your terminal:
 
 ```shell
-git clone https://github.com/2006-ghp-capstone-team-B/capstone-b.git
+git clone https://github.com/arielwainer4/dataVisualizer.git
 cd CovidData/my-app
 npm install
 npm start
