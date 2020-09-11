@@ -2,7 +2,7 @@
 
 ## Learning D3 in 4 Days
 
-<img src="/assets/homepage.png" width="150">
+<img src="/assets/homepage.png">
 Description here
 
 ---
@@ -39,16 +39,16 @@ This app will run at http://localhost:3000/
 
 Heat Map:
 The heat map displays the most up to date distribution of positive Covid-19 tests across the United States, organized by color.
-<img src="my-app/assets/heatmap.png" width="201">
+<img src="/assets/heatmap.png">
 
 Graphs:
 To view the data, select a region (U.S. or state-specific), a variable, and graph format.
 
 Line Graph
-<img src="assets/screenshots/line.png" width="201">
+<img src="/screenshots/line.png">
 
 Bar Graph
-<img src="assets/screenshots/bar.png" width="200">
+<img src="/screenshots/bar.png">
 
 ---
 
