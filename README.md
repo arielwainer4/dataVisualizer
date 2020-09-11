@@ -3,7 +3,10 @@
 ## Learning D3 in 4 Days
 
 <img src="/assets/homepage.png">
-Description here
+
+Throughout the past 6 months, I've spent countless hours pouring over COVID-19 data. From line graphs representing positive cases in New York City, to animated maps demonstrating how hot spots have progressively migrated across the U.S, I have seen my fair share of informative and not so informative visuals with varying levels of complexity.
+
+So when tasked with self-teaching a new tool for the Grace Hopper Stackathon, it felt like a natural first choice to see if I could learn to make a few Covid-19 graphs myself.
 
 ---
 
