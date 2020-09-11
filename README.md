@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Covid-19 Visualizer
 
-## Available Scripts
+## Learning D3 in 4 Days
 
-In the project directory, you can run:
+<img src="my-app/assets/homepage.png" width="150">
+Description here
 
-### `yarn start`
+---
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech-Stack:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+This app was built using Creat-React-App. Below is a list of additional technologies:
 
-### `yarn test`
+| React | React Router Dom |
+| D3 | D3-queue |
+| TopoJSON | GeoJSON |
+| Material UI | Material UI Icons |
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to use this app:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+You explore the data visualization tools at https://data-visualizer-abw.herokuapp.com/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Or, feel free to clone repo. To start, please enter the following commands on your terminal:
 
-### `yarn eject`
+```shell
+git clone https://github.com/2006-ghp-capstone-team-B/capstone-b.git
+cd CovidData/my-app
+npm install
+npm start
+This app will run at http://localhost:3000/
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Current Features:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Heat Map:
+The heat map displays the most up to date distribution of positive Covid-19 tests across the United States, organized by color.
+<img src="my-app/assets/heatmap.png" width="201">
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Graphs:
+To view the data, select a region (U.S. or state-specific), a variable, and graph format.
 
-## Learn More
+Line Graph
+<img src="assets/screenshots/line.png" width="201">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Bar Graph
+<img src="assets/screenshots/bar.png" width="200">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## About The Author:
+This app was born as a bootcamp challenge to learn a new technology over the course of 4 days. My goal was to combine a practical skillset (D3) with information I found intriguing (Covid-19 tracking).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Feel free to reach out if you'd like learn more about this project or my experience!
 
-### Analyzing the Bundle Size
+| Ariel Wainer | [arielwainer4](https://github.com/arielwainer4) | [/in/arielwainer/](https://www.linkedin.com/in/arielwainer/) |
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
