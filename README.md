@@ -2,7 +2,7 @@
 
 ## Learning D3 in 4 Days
 
-<img src="my-app/assets/homepage.png" width="150">
+<img src="/assets/homepage.png" width="150">
 Description here
 
 ---
