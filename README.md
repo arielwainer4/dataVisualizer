@@ -45,10 +45,10 @@ Graphs:
 To view the data, select a region (U.S. or state-specific), a variable, and graph format.
 
 Line Graph
-<img src="/screenshots/line.png">
+<img src="assets/line.png">
 
 Bar Graph
-<img src="/screenshots/bar.png">
+<img src="assets/bar.png">
 
 ---
 
@@ -57,5 +57,5 @@ This app was born as a bootcamp challenge to learn a new technology over the cou
 
 Feel free to reach out if you'd like learn more about this project or my experience!
 
-| Ariel Wainer | [arielwainer4](https://github.com/arielwainer4) | [/in/arielwainer/](https://www.linkedin.com/in/arielwainer/) |
+Ariel Wainer | [arielwainer4](https://github.com/arielwainer4) | [/in/arielwainer/](https://www.linkedin.com/in/arielwainer/) 
 
