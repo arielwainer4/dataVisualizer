@@ -14,9 +14,9 @@ function App() {
       </nav>
       <main>
         <Container maxWidth="md" >
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' component={Map} />
+          <Route exact path="/about" component={Home} />
           <Route exact path="/graph" component={Graph} />
-          <Route exact path="/map" component={Map} />
         </Container>
         </main>
         <footer>

@@ -133,7 +133,7 @@ const Map2 = (props) => {
     <div  style={{margin: 40}}>
       <Container component={Paper} elevation={10} style={{padding: "20px 20px"}}>
       <div className="svg-div" >
-        <Typography style={{ margin: "2rem 2rem 0rem" }} >This heatmap is a snapshot of the current total Covid-19 positive test distribution across the US as of {dateObj.toDateString()}.</Typography>
+        <Typography style={{ margin: "2rem 2rem 0rem" }} >This heatmap is a snapshot of the current total Covid-19 positive test distribution across the US as of {dateObj.toDateString().slice(3)}. Hover over a state to see it's total case count.</Typography>
         <svg
           className="d3-component"
           ref={d3Container}

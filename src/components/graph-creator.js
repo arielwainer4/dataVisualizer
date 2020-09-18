@@ -6,8 +6,8 @@ import {Button, TableRow, TableCell } from '@material-ui/core'
 
 const graphCreator = (props) => {
   return (
-    <div style={{ margin: 5 }}>
-      <TableRow>
+
+      <TableRow style={{margin: 30}}>
         <TableCell align="center">
           DataSet 1:
         </TableCell>
@@ -27,7 +27,7 @@ const graphCreator = (props) => {
           <Button variant="contained" color="primary" onClick={() => props.fetchData()}>Load Graph</Button>
         </TableCell>
       </TableRow>
-    </div>
+
   );
 }
 

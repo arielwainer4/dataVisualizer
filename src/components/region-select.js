@@ -66,12 +66,7 @@ const RegionSelect = (props) => {
             lower = object
             upper = state[object]
           }
-          if (lower === 'us') {
             return <option value={lower} key={idx}>{upper}</option>
-          }
-          else {
-            return <option value={`states/${lower}`} key={idx}>{upper}</option>
-          }
         })
       }
     </select>

@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography } from '@material-ui/core'
 import { Link } from "react-router-dom";
 
 
-const Footer = (props) => {
+const Nav = (props) => {
   return (
     <AppBar position="static">
     <Toolbar>
@@ -11,14 +11,14 @@ const Footer = (props) => {
       <Link to="/" >Covid Data Visualizer </Link>
       </Typography>
       <Typography variant="h6">
-        <Link to="/graph" style={{ margin: "0rem 2rem 0rem" }}>Graph</Link>
+        <Link to="/graph" style={{ margin: "0rem 2rem 0rem" }}>Graph Tool</Link>
       </Typography>
       <Typography variant="h6" align="center">
-        <Link to="/map">Heat Map</Link>
+        <Link to="/about">About</Link>
       </Typography>
     </Toolbar>
     </AppBar>
   )
 }
 
-export default Footer
+export default Nav

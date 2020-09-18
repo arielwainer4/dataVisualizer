@@ -22,10 +22,10 @@ export function drawLine (allData, svgWidth, svgHeight, margin, variable) {
 
       let line = d3.line()
         .x(function(d) {return x(Date.parse(d.date))})
-        .y(function(d) {return y(d.value)})
+        .y(function(d) {return y(d[variable])})
 
         x.domain(d3.extent(allData, function(d) {return Date.parse(d.date)}))
-        y.domain(d3.extent(allData, function(d) {return d.value}))
+        y.domain(d3.extent(allData, function(d) {return d[variable]}))
 
         g.append("g")
         .call(d3.axisBottom(x))
