@@ -2,12 +2,12 @@ import React from 'react'
 
 const VariableSelect = (props) => {
   const variables = [
-{  "positive": "Positive Test Results"},
-{  "negative": "Negative Test Results"},
- { "hospitalizedCurrently": "Hospitalized With Covid-19"},
-{"inIcuCurrently": "In ICU with Covid-19"},
-{  "recovered": "Recovered"},
-{  "death": "Deaths"},
+{  "positive": "Total Positive Test Results"},
+{  "negative": "Total Negative Test Results"},
+ { "hospitalizedCurrently": "Current Hospitalizations"},
+{"inIcuCurrently": "Current In ICU"},
+{  "recovered": "Total Recovered"},
+{  "death": "Total Deaths"},
 {  "positiveIncrease": "Daily Increase in Total Positive Test Results"},
 {  "negativeIncrease": "Daily Increase in Total Negative Test Results"},
 {  "totalTestResults": "Total Tests Administered"},

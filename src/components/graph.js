@@ -10,8 +10,6 @@ import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody
 const MyD3Component = (props) => {
 
   const [allData, setAllData] = useState(['""']);
-  const [dateData, setDateData] = useState(['""']);
-  const [valueData, setValueData] = useState([`""`]);
   const [variable, selectVariable] = useState([""]);
   const [region, selectRegion] = useState([""]);
   const [graphType, selectGraphType] = useState([""]);
@@ -30,7 +28,11 @@ const MyD3Component = (props) => {
         data = data.filter(stat => stat.state.toLowerCase() === region[0])
         .reduce((accum, stat) => {
           let filteredByVariable = {date: stat.date}
-          filteredByVariable[variable] = stat[variable]
+          if(stat[variable] < 0) {
+            filteredByVariable[variable] = 0
+          } else {
+            filteredByVariable[variable] = stat[variable]
+          }
           accum.push(filteredByVariable)
           return accum
         }, [])
@@ -39,15 +41,18 @@ const MyD3Component = (props) => {
           let dateKey = stat.date
           if(!accum[dateKey]) {
             accum[dateKey] = {date: stat.date}
-            accum[dateKey][variable] = stat[variable]
+            if(stat[variable] < 0) {
+              accum[dateKey][variable] = 0
+            } else {
+              accum[dateKey][variable] = stat[variable]
+            }
           } else {
             accum[dateKey][variable] = accum[dateKey][variable]+stat[variable]
           }
           return accum
         }, {}))
       }
-
-      data.map(instance => {
+      data.forEach(instance => {
 
         let year = instance.date.toString().slice(0,4)
         let month = instance.date.toString().slice(4,6)
@@ -56,31 +61,9 @@ const MyD3Component = (props) => {
       })
 
       setAllData([JSON.stringify(data)])
-      // setDateData([JSON.stringify(arr)])
-
-      // if(allData[0].length > 1) {
-      //   updateData()
-      // }
     })
     .catch((err) => {console.log(err)})
     }
-
-  // function updateData() {
-  //   let all = JSON.parse(allData[0])
-  //   if(variable[0] !== "") {
-  //     let complete = [];
-  //     let dates = JSON.parse(dateData[0])
-  //     dates.forEach((date, idx) => {
-  //       if(all[idx][variable] === null) {
-  //         date.value = 0
-  //       } else {
-  //         date.value = all[idx][variable]
-  //       }
-  //       complete.push(date)
-  //     })
-  //     setValueData([JSON.stringify(complete)])
-  //   }
-  // }
 
   function drawChart() {
     let graphData = JSON.parse(allData)
@@ -101,17 +84,17 @@ const MyD3Component = (props) => {
 
   function variableSelector (event) {
     selectVariable([event.target.value])
-    setValueData([`""`])
+    setAllData([`""`])
   }
 
   function regionSelector (event) {
     selectRegion([event.target.value])
-    setValueData([`""`])
+    setAllData([`""`])
   }
 
   function graphTypeSelector (event) {
     selectGraphType([event.target.value])
-    setValueData([`""`])
+    setAllData([`""`])
   }
 
   return (

@@ -22,7 +22,12 @@ export function drawLine (allData, svgWidth, svgHeight, margin, variable) {
 
       let line = d3.line()
         .x(function(d) {return x(Date.parse(d.date))})
-        .y(function(d) {return y(d[variable])})
+        .y(function(d) {
+          if(d[variable] < 0 || typeof d[variable] !== 'number') {
+            return height
+          } else {
+            return y(d[variable])}
+          })
 
         x.domain(d3.extent(allData, function(d) {return Date.parse(d.date)}))
         y.domain(d3.extent(allData, function(d) {return d[variable]}))

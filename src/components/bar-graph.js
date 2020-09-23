@@ -22,7 +22,7 @@ export function drawBar (allData, svgWidth, svgHeight, margin, variable) {
         "translate(" + margin.left + "," + margin.top + ")");
 
     x.domain(d3.extent(allData, function(d) {return Date.parse(d.date)}))
-    y.domain(d3.extent(allData, function(d) {return d.value}))
+    y.domain(d3.extent(allData, function(d) {return d[variable]}))
 
     g.append("g")
         .call(d3.axisBottom(x))
@@ -43,10 +43,16 @@ export function drawBar (allData, svgWidth, svgHeight, margin, variable) {
         .append("rect")
         .attr("class", "bar")
         .style("fill", "steelblue")
-        .attr("y", function (d) {return y(d.value) })
+        .attr("y", function (d) {return y(d[variable]) })
         .attr("x", function (d) {return x(Date.parse(d.date)) })
         .attr("width", function (d) {
           let size = width/allData.length
           return `${size}px`})
-        .attr("height", function (d) { return height - y(d.value); });
+        .attr("height", function (d) {
+          if(d[variable] < 0 || typeof d[variable] !== 'number') {
+            return 0
+          } else {
+            return height - y(d[variable]);
+          }
+         });
   }
