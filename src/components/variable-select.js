@@ -15,8 +15,8 @@ const VariableSelect = (props) => {
 {  "deathIncrease":  "Daily Increase in Total Positive Deaths"}]
 
   return (
-    <div id='variable-select'>
-      <select onChange={props.variableSelector}>
+    <div id='variable-div'>
+      <select onChange={props.variableSelector} id='variable-select'>
         <option defaultValue="none" >Choose a Variable</option>
         {variables.map((variable, idx) => {
           let unformatted;
