@@ -9,8 +9,8 @@ const AddSelect = (props) => {
     var clone = select.cloneNode(true)
     // var name = select.getAttribute("name") + selectionCounter++
     // clone.id = name
-    // clone.setAttribute("name", name)
-    document.getElementById(`${el.target.value}-div`).appendChild(clone)
+    clone.setAttribute("onChange", () => props.regionSelector)
+    document.getElementById(`${el.target.value}-div`).append(clone)
   }
 
   return (

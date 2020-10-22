@@ -88,6 +88,7 @@ const MyD3Component = (props) => {
   }
 
   function regionSelector (event) {
+    console.log('reg', event.target.value)
     selectRegion([event.target.value])
     setAllData([`""`])
   }
