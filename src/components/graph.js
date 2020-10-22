@@ -103,7 +103,7 @@ const MyD3Component = (props) => {
     <TableContainer  style={{justifyContent: 'center', alignContent:'center'}}>
       <Table >
         <TableHead >
-          <GraphCreator regionSelector={regionSelector} variableSelector={variableSelector} graphTypeSelector={graphTypeSelector} fetchData={fetchData} />
+          <GraphCreator regionSelector={regionSelector} variableSelector={variableSelector} graphTypeSelector={graphTypeSelector} fetchData={fetchData} data={[variable, region, graphType]}/>
         </TableHead>
         <TableBody>
           <TableRow>

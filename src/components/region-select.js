@@ -56,7 +56,7 @@ const RegionSelect = (props) => {
 {  wy: "WY"} ]
 
   return (
-    <div>
+    <div id='region-select'>
       <select onChange={props.regionSelector}>
       <option defaultValue="none" >Choose a Region</option>
         {states.map((state, idx) => {

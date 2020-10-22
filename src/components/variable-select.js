@@ -15,7 +15,7 @@ const VariableSelect = (props) => {
 {  "deathIncrease":  "Daily Increase in Total Positive Deaths"}]
 
   return (
-    <div>
+    <div id='variable-select'>
       <select onChange={props.variableSelector}>
         <option defaultValue="none" >Choose a Variable</option>
         {variables.map((variable, idx) => {

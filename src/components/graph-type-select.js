@@ -2,7 +2,7 @@ import React from 'react'
 
 const GraphTypeSelect = (props) => {
   return (
-    <div>
+    <div id='graph-select'>
       <select onChange={props.graphTypeSelector}>
         <option defaultValue="none" >Choose a Graph</option>
         <option defaultValue="line" >Line</option>
